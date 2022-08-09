@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VideoBase</string>
+    <string name="action_settings">Настройки</string>
+    <string name="main_fragment_label">Фильмы - новинки</string>
+    <string name="info_fragment_label">Информация о фильме</string>
+    <string name="user_score_label">Рейтинг</string>
+    <string name="overview_label_text">Описание</string>
+    <string name="date_string_start">"Дата выхода: "</string>
+    <string name="minutes">м</string>
+    <string name="hours">ч</string>
+    <string name="actors_label_text">Актёры</string>
+</resources>

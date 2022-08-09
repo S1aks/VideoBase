@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:padding="5dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/poster"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:scaleType="centerCrop"
+        tools:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toTopOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/progress_back"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/shape_circle"
+        app:layout_constraintBottom_toBottomOf="@id/poster"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:progress="60"
+        app:indicatorColor="#2AFF32"
+        app:layout_constraintBottom_toBottomOf="@id/progress_back"
+        app:layout_constraintEnd_toEndOf="@id/progress_back"
+        app:layout_constraintStart_toStartOf="@id/progress_back"
+        app:layout_constraintTop_toTopOf="@id/progress_back"
+        app:trackColor="#40000000"
+        app:trackCornerRadius="5dp" />
+
+    <TextView
+        android:id="@+id/progress_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/progress_back"
+        app:layout_constraintEnd_toEndOf="@id/progress_back"
+        app:layout_constraintStart_toStartOf="@id/progress_back"
+        app:layout_constraintTop_toTopOf="@id/progress_back"
+        tools:text="60" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/poster"
+        tools:text="Film Name" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:textColor="#5A5A5A"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:text="16 Dec 2019" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

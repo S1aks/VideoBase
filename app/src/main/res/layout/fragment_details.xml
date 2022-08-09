@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.details.DetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backdrop"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backdrop_blackout"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:background="#AA000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/poster_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="120dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/mini_poster"
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"
+                tools:src="@mipmap/ic_launcher" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Film Title" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/progress_back"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/shape_circle"
+            app:layout_constraintTop_toBottomOf="@id/genres"
+            app:layout_constraintBottom_toBottomOf="@id/backdrop"
+            app:layout_constraintStart_toEndOf="@id/poster_card" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:progress="0"
+            app:indicatorColor="#2AFF32"
+            app:layout_constraintBottom_toBottomOf="@id/progress_back"
+            app:layout_constraintEnd_toEndOf="@id/progress_back"
+            app:layout_constraintStart_toStartOf="@id/progress_back"
+            app:layout_constraintTop_toTopOf="@id/progress_back"
+            app:trackColor="#40000000"
+            app:trackCornerRadius="5dp" />
+
+        <TextView
+            android:id="@+id/progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/progress_back"
+            app:layout_constraintEnd_toEndOf="@id/progress_back"
+            app:layout_constraintStart_toStartOf="@id/progress_back"
+            app:layout_constraintTop_toTopOf="@id/progress_back"
+            tools:text="60" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/poster_card"
+            app:layout_constraintTop_toTopOf="@id/poster_card"
+            tools:text="Release date: 18 Dec 2021" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/poster_card"
+            app:layout_constraintTop_toBottomOf="@id/date"
+            tools:text="1h 22m" />
+
+        <TextView
+            android:id="@+id/genres"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/poster_card"
+            app:layout_constraintTop_toBottomOf="@id/time"
+            tools:text="Action" />
+
+        <TextView
+            android:id="@+id/progress_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/user_score_label"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@id/progress_back"
+            app:layout_constraintStart_toEndOf="@id/progress_back"
+            app:layout_constraintTop_toTopOf="@id/progress_back" />
+
+        <TextView
+            android:id="@+id/overview_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/overview_label_text"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/poster_card" />
+
+        <TextView
+            android:id="@+id/overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/overview_label"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/actors_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/actors_label_text"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/overview" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:id="@+id/actors_rv"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/fragment_details_actors_item"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actors_label"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
