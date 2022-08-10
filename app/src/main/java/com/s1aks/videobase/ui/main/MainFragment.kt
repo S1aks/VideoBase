@@ -13,8 +13,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate),
     OnItemViewClickListener {
     private val mainViewModel: MainViewModel by viewModel()
-    private val adapter = MainAdapter(this)
-    private var page = 1
+    private var adapter = MainAdapter(this)
+    private var nextPage = 2
     private var isLastPage: Boolean = false
     private var isLoading: Boolean = false
 
@@ -31,7 +31,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
 
             override fun loadMoreItems() {
                 isLoading = true
-                mainViewModel.getMoviesList(page++)
+                mainViewModel.getMoviesListNextPage(nextPage++)
             }
         })
     }
@@ -39,11 +39,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     override fun initObservers() {
         mainViewModel.liveData.observe(viewLifecycleOwner) { list ->
             isLoading = false
-            val updatedList = adapter.currentList.toMutableList()
-            updatedList.addAll(list.results)
-            adapter.submitList(updatedList)
+            list?.let { adapter.submitList(list.results) }
         }
-        mainViewModel.getMoviesList(page)
+        mainViewModel.getFirstMoviesList()
     }
 
     override fun onItemViewClick(movieId: Int) {

@@ -8,12 +8,25 @@ import com.s1aks.videobase.domain.Repository
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: Repository) : ViewModel() {
-    var liveData = MutableLiveData<MoviesList>()
+    var liveData = MutableLiveData<MoviesList>(null)
         private set
 
-    fun getMoviesList(page: Int) {
+    fun getFirstMoviesList() {
         viewModelScope.launch {
-            liveData.postValue(repository.getNewMoviesList(page))
+            if (liveData.value != null) {
+                liveData.postValue(liveData.value)
+            } else {
+                liveData.postValue(repository.getNewMoviesList(1))
+            }
+        }
+    }
+
+    fun getMoviesListNextPage(page: Int) {
+        viewModelScope.launch {
+            val currentData = liveData.value?.results?.toMutableList()
+            val newPage = repository.getNewMoviesList(page)
+            currentData?.addAll(newPage.results)
+            liveData.postValue(currentData?.let { MoviesList(results = it) })
         }
     }
 }
